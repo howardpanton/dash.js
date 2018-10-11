@@ -395,7 +395,7 @@ function DashManifestModel(config) {
     }
 
     function getEssentialPropertiesForRepresentation(realRepresentation) {
-        if (!realRepresentation || ! realRepresentation.EssentialProperty_asArray || !realRepresentation.EssentialProperty_asArray.length) return null;
+        if (!realRepresentation) { return null; }
 
         return realRepresentation.EssentialProperty_asArray.map( (prop) => {
             return {
