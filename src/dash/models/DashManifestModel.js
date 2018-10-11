@@ -67,7 +67,7 @@ function DashManifestModel(config) {
             Math.floor(value) === value;
     };
 
-    function setup () {
+    function setup() {
         logger = Debug(context).getInstance().getLogger(instance);
     }
 
@@ -395,9 +395,11 @@ function DashManifestModel(config) {
     }
 
     function getEssentialPropertiesForRepresentation(realRepresentation) {
-        if (!realRepresentation) { return null; }
+        if (!realRepresentation || !realRepresentation.EssentialProperty_asArray) {
+            return null;
+        }
 
-        return realRepresentation.EssentialProperty_asArray.map( (prop) => {
+        return realRepresentation.EssentialProperty_asArray.map((prop) => {
             return {
                 schemeIdUri: prop.schemeIdUri,
                 value: prop.value

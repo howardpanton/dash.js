@@ -7,8 +7,7 @@ module.exports = function (grunt) {
             options: {
                 fail: false
             },
-            dist: {
-            }
+            dist: {}
         },
 
         clean: {
@@ -40,8 +39,7 @@ module.exports = function (grunt) {
                     unused: true,
                     if_return: true,
                     join_vars: true,
-                    drop_console: false,
-                    inline: false
+                    drop_console: false
                 }
             },
 
@@ -101,50 +99,48 @@ module.exports = function (grunt) {
                     directory: true
                 },
                 startPath: '/samples/index.html',
-                plugins: [
-                    {
-                        module: 'bs-html-injector',
-                        options: {
-                            files: 'samples/**/*.html'
-                        }
+                plugins: [{
+                    module: 'bs-html-injector',
+                    options: {
+                        files: 'samples/**/*.html'
                     }
-                ]
+                }]
             }
         },
         copy: {
             dist: {
-              files: [{
-                expand: true,
-                cwd: 'build/temp/',
-                src: [
-                    'dash.all.min.js', 'dash.all.min.js.map',
-                    'dash.mediaplayer.min.js', 'dash.mediaplayer.min.js.map',
-                    'dash.protection.min.js', 'dash.protection.min.js.map',
-                    'dash.all.debug.js', 'dash.all.debug.js.map',
-                    'dash.reporting.min.js', 'dash.reporting.min.js.map',
-                    'dash.mss.min.js', 'dash.mss.min.js.map',
-                    'dash.mediaplayer.debug.js', 'dash.mediaplayer.debug.js.map',
-                    'dash.protection.debug.js', 'dash.protection.debug.js.map',
-                    'dash.reporting.debug.js', 'dash.reporting.debug.js.map',
-                    'dash.mss.debug.js', 'dash.mss.debug.js.map'
-                ],
-                dest: 'dist/',
-                filter: 'isFile'
-            }, {
-                expand: true,
-                cwd: '.',
-                src: 'index.d.ts',
-                dest: 'dist/',
-                rename: function (dest) {
-                    return dest + 'dash.d.ts';
-                }
-            }, {
-                expand: true,
-                cwd: '.',
-                src: 'index.d.ts',
-                dest: 'build/typings/'
-            }]
-          }
+                files: [{
+                    expand: true,
+                    cwd: 'build/temp/',
+                    src: [
+                        'dash.all.min.js', 'dash.all.min.js.map',
+                        'dash.mediaplayer.min.js', 'dash.mediaplayer.min.js.map',
+                        'dash.protection.min.js', 'dash.protection.min.js.map',
+                        'dash.all.debug.js', 'dash.all.debug.js.map',
+                        'dash.reporting.min.js', 'dash.reporting.min.js.map',
+                        'dash.mss.min.js', 'dash.mss.min.js.map',
+                        'dash.mediaplayer.debug.js', 'dash.mediaplayer.debug.js.map',
+                        'dash.protection.debug.js', 'dash.protection.debug.js.map',
+                        'dash.reporting.debug.js', 'dash.reporting.debug.js.map',
+                        'dash.mss.debug.js', 'dash.mss.debug.js.map'
+                    ],
+                    dest: 'dist/',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: '.',
+                    src: 'index.d.ts',
+                    dest: 'dist/',
+                    rename: function (dest) {
+                        return dest + 'dash.d.ts';
+                    }
+                }, {
+                    expand: true,
+                    cwd: '.',
+                    src: 'index.d.ts',
+                    dest: 'build/typings/'
+                }]
+            }
         },
         exorcise: {
             mediaplayer: {
@@ -215,7 +211,11 @@ module.exports = function (grunt) {
                     plugin: [
                         'browserify-derequire', 'bundle-collapser/plugin'
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             },
             protection: {
@@ -230,7 +230,11 @@ module.exports = function (grunt) {
                     plugin: [
                         'browserify-derequire', 'bundle-collapser/plugin'
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             },
             reporting: {
@@ -245,7 +249,11 @@ module.exports = function (grunt) {
                     plugin: [
                         'browserify-derequire', 'bundle-collapser/plugin'
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             },
             all: {
@@ -259,7 +267,11 @@ module.exports = function (grunt) {
                     plugin: [
                         'browserify-derequire', 'bundle-collapser/plugin'
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             },
             mss: {
@@ -273,7 +285,11 @@ module.exports = function (grunt) {
                     plugin: [
                         'browserify-derequire', 'bundle-collapser/plugin'
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             },
 
@@ -291,7 +307,11 @@ module.exports = function (grunt) {
                     plugin: [
                         'browserify-derequire'
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             },
             watch_dev: {
@@ -308,7 +328,11 @@ module.exports = function (grunt) {
                     plugin: [
                         ['browserify-derequire']
                     ],
-                    transform: [['babelify', {compact: false}]]
+                    transform: [
+                        ['babelify', {
+                            compact: false
+                        }]
+                    ]
                 }
             }
         },
@@ -370,21 +394,19 @@ module.exports = function (grunt) {
                     debug: true,
                     port: 21
                 },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '.',
-                        src: [
-                            'contrib/**',
-                            'dist/**',
-                            'test/functional/tests.html',
-                            'test/functional/testsCommon.js',
-                            'test/functional/config/**',
-                            'test/functional/tests/**',
-                            'samples/**'
-                        ]
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: '.',
+                    src: [
+                        'contrib/**',
+                        'dist/**',
+                        'test/functional/tests.html',
+                        'test/functional/testsCommon.js',
+                        'test/functional/config/**',
+                        'test/functional/tests/**',
+                        'samples/**'
+                    ]
+                }]
             }
         }
     });
@@ -393,7 +415,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.registerTask('default', ['dist', 'test']);
     grunt.registerTask('dist', ['clean', 'jshint', 'jscs', 'browserify:mediaplayer', 'browserify:protection', 'browserify:reporting', 'browserify:mss', 'browserify:all', 'babel:es5', 'minimize', 'copy:dist']);
-    grunt.registerTask('minimize', ['exorcise', 'githash']);
+    grunt.registerTask('minimize', ['exorcise', 'githash', 'uglify']);
     grunt.registerTask('test', ['mocha_istanbul:test']);
     grunt.registerTask('watch', ['browserify:watch']);
     grunt.registerTask('watch-dev', ['browserify:watch_dev']);
