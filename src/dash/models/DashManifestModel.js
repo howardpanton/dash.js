@@ -461,7 +461,7 @@ function DashManifestModel(config) {
 
         if (processedRealAdaptation && processedRealAdaptation.Representation_asArray) {
             for (let i = 0, len = processedRealAdaptation.Representation_asArray.length; i < len; ++i) {
-                const realRepresentation = processedRealAdaptation.Representation_asArray[i];
+                let realRepresentation = processedRealAdaptation.Representation_asArray[i];
                 const voRepresentation = new Representation();
                 voRepresentation.index = i;
                 voRepresentation.adaptation = voAdaptation;
