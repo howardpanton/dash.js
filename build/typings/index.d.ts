@@ -1,4 +1,4 @@
-import ClearKeyKeySet from "./src/streaming/protection/vo/ClearKeyKeySet";
+// import ClearKeyKeySet from "./src/streaming/protection/vo/ClearKeyKeySet";
 
 export = dashjs;
 export as namespace dashjs;
@@ -687,6 +687,10 @@ declare namespace dashjs {
          * @param periodIdx Make sure this is the period index not id
          */
         getMaxIndexForBufferType(bufferType: 'video' | 'audio', periodIdx: number): number;
+        getBandwidthForRepresentation(
+            representationId: string,
+            periodIdx: number
+        ): number;
         getCurrentRepresentationSwitch(metrics: MetricsList): any[];
         getLatestBufferLevelVO(metrics: MetricsList): any[];
         getCurrentBufferLevel(metrics: MetricsList): number;
