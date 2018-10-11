@@ -62,7 +62,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dash-Industry-Forum/dash.js.git"
+    "url": "https://github.com/howardpanton/dash.js.git"
   },
   "author": "Dash Industry Forum",
   "license": "BSD-3-Clause"
