@@ -393,7 +393,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.registerTask('default', ['dist', 'test']);
     grunt.registerTask('dist', ['clean', 'jshint', 'jscs', 'browserify:mediaplayer', 'browserify:protection', 'browserify:reporting', 'browserify:mss', 'browserify:all', 'babel:es5', 'minimize', 'copy:dist']);
-    grunt.registerTask('minimize', ['exorcise', 'githash', 'uglify']);
+    grunt.registerTask('minimize', ['exorcise', 'githash']);
     grunt.registerTask('test', ['mocha_istanbul:test']);
     grunt.registerTask('watch', ['browserify:watch']);
     grunt.registerTask('watch-dev', ['browserify:watch_dev']);
